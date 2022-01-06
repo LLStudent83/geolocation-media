@@ -1,6 +1,6 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/ywy6r09sfhdt97aq?svg=true)](https://ci.appveyor.com/project/LLStudent83/anim)
+[![Build status](https://ci.appveyor.com/api/projects/status/ywy6r09sfhdt97aq?svg=true)](https://ci.appveyor.com/project/LLStudent83/geolocation-media)
 
-https://llstudent83.github.io/anim/
+https://llstudent83.github.io/geolocation-media/
 
 
 # Webpack5
