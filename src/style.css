@@ -1,0 +1,63 @@
+body {
+  background-color: rgb(224, 224, 224);
+}
+
+.contaner {
+  background-color: white;
+  margin: 2px;
+  width: 450px;
+  padding: 15px;
+}
+
+.collapseBtn {
+  color: white;
+  height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 0;
+  border-radius: 4px;
+  background-color: rgb(122, 108, 207);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.collapseBtn:hover {
+  background-color: slateblue;
+}
+
+.collapseBtn:active {
+  outline: 3px solid rgba(156, 148, 207, 0.623);
+}
+
+.text {
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow: hidden;
+}
+
+.textShow {
+    border: 1px solid rgb(224, 224, 224, 1);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 100px;
+  transition: padding-top 1s ease, 
+  padding-bottom 1s ease, height 1s ease, 
+  border 0.1s ease;
+
+
+}
+
+.textHiden {
+padding-top: 0;
+  padding-bottom: 0;
+  height: 0;
+  border: 1px solid rgb(224, 224, 224, 0);
+  transition: padding-top 1s ease, 
+  padding-bottom 1s ease, height 1s ease, 
+  border 0.2s ease 1s;
+}
+
+.borderNone {
+  border: 0 solid rgb(224, 224, 224);
+}
