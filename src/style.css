@@ -5,59 +5,57 @@ body {
 .contaner {
   background-color: white;
   margin: 2px;
-  width: 450px;
   padding: 15px;
+  min-width: 440px;
+  max-width: 550px;
 }
 
-.collapseBtn {
-  color: white;
-  height: 30px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border: 0;
-  border-radius: 4px;
-  background-color: rgb(122, 108, 207);
-  cursor: pointer;
+.messages {
+  min-height: 100px;
+  margin-bottom: 15px;
+}
+
+.inputForm {
+  width: 100%;
+  height: 60px;
+  border: 1px solid black;
+  padding: 5px;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  vertical-align: bottom;
 }
 
-.collapseBtn:hover {
-  background-color: slateblue;
+.buttonForm {
+  width: 40px;
+  height: 40px;
+  margin-left: 15px;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-color: #fff;
+  cursor: pointer;
 }
 
-.collapseBtn:active {
-  outline: 3px solid rgba(156, 148, 207, 0.623);
+.buttonForm:hover {
+  background-color: rgba(228, 225, 225, 0.459);
 }
 
-.text {
-  border-radius: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  overflow: hidden;
+.buttonForm:active {
+  outline: 1px solid black;
 }
 
-.textShow {
-    border: 1px solid rgb(224, 224, 224, 1);
-  padding-top: 10px;
-  padding-bottom: 10px;
-  height: 100px;
-  transition: padding-top 1s ease, 
-  padding-bottom 1s ease, height 1s ease, 
-  border 0.1s ease;
-
+.postAudioRecording {
+  background-image: url(../img/microphone.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 
 }
 
-.textHiden {
-padding-top: 0;
-  padding-bottom: 0;
-  height: 0;
-  border: 1px solid rgb(224, 224, 224, 0);
-  transition: padding-top 1s ease, 
-  padding-bottom 1s ease, height 1s ease, 
-  border 0.2s ease 1s;
-}
-
-.borderNone {
-  border: 0 solid rgb(224, 224, 224);
+.formText {
+  flex-grow: 2;
+  height: 100%;
+  outline: none;
+  resize: none;
+  border: none;
 }

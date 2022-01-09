@@ -1,25 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Widget</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>geolocation-media</title>
+  </head>
+  <body>
     <main class="contaner">
-        <header>
-            <button class="collapseBtn" type="button">collapse</button>
-        </header>
-      <div class="collapseBlock">
-       <p class="text textHiden">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-         Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-         laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-         irure dolor in reprehenderit in voluptate velit
-       </p> 
+      <div class="messages">
+        <div class="messag">
+          <div class="messagCont">
+            <audio controls class="messag_audio" src="//:0"></audio>
+            <div class="messag_geoposition">[51.52658, -0.45263]</div>
+          </div>
+          <time class="messag_date">15.03.19 08:40</time>
+        </div>
+
+        <div class="messag">
+          <div class="messagCont">
+            <p class="messag_text">
+              Laborum do pariatur sint id. Duis ad dolore esse Lorem aute
+              ullamco consectetur laborum sunt consequat nostrud. Nostrud enim
+              excepteur nisi sint culpa laborum cillum sit consequat. Cupidatat
+              proident ad cupidatat veniam eiusmod sint.
+            </p>
+            <div class="messag_geoposition">[51.52658, -0.45263]</div>
+          </div>
+          <time class="messag_date">15.03.19 08:40</time>
+        </div>
+        
       </div>
+      <form class="inputForm" action="">
+        <textarea
+          class="formText"
+          placeholder="Введите текст и нажмите enter"
+        ></textarea>
+        <input class="postAudioRecording buttonForm" type="button" />
+      </form>
     </main>
   </body>
 </html>
+
+<!-- <form class="form" action="">
+  <h1 class="form_Name">что то пошло не так</h1>
+  <section class="textmessage">
+    <p>
+      К сожалению нам не удалось определить ваше местоположение, пожалуйста,
+      дайте разрешение на использование геолокации, либо введите координаты
+      вручную.
+    </p>
+    <p>Широта и долгота через запятую</p>
+  </section>
+  <footer class="form_footer">
+    <input class="coordinatesText" type="text">
+    <button type="button" class="form_cancell button">Отмена</button>
+    <button type="submit" class="form_submitBt button">Ok</button>
+  </footer>
+</form> -->

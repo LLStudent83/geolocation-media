@@ -1,0 +1,25 @@
+.messag {
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* justify-content: flex-end;*/
+}
+
+.messag_date {
+  margin-left: 10px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.messag_text {
+  text-align: justify;
+}
+
+.messag_audio {
+  margin-bottom: 10px;
+  margin-top: 16px;
+}
