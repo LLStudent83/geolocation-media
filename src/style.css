@@ -1,8 +1,9 @@
 body {
   background-color: rgb(224, 224, 224);
+  font-family: sans-serif;
 }
 
-.contaner {
+.container {
   background-color: white;
   margin: 2px;
   padding: 15px;

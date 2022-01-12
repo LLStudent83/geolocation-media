@@ -5,5 +5,6 @@ import './modules/pop_up/pop_up';
 import './modules/pop_up/pop_up.css';
 import './modules/gps/gps';
 import './modules/input_form/input_form';
+import './modules/validation/validationCoord';
 
 import './style.css';

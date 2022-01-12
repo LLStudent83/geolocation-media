@@ -1,7 +1,7 @@
 export default class Message {
-  constructor(messages, gps) {
+  constructor(messages, popUp) {
     this.messages = messages;
-    this.gps = gps;
+    this.popUp = popUp;
   }
 
   static getData() {
@@ -9,27 +9,25 @@ export default class Message {
     return dateMessage;
   }
 
-  createAudioMessage(src) {
+  async createAudioMessage(src, coordinates) {
     console.log('ссылка на аудио', src);
-    const coordinates = this.gps.getСoordinates();
     const html = `
     <div class="messag">
         <div class="messagCont">
           <audio controls class="messag_audio" src="${src}"></audio>
-          <div class="messag_geoposition">[51.52658, -0.45263][${coordinates}]</div>
+          <div class="messag_geoposition">${coordinates}</div>
         </div>
       <time class="messag_date">${Message.getData()}</time>
     </div>`;
     this.messages.innerHTML += html;
   }
 
-  createTextMessage(text) {
-    const coordinates = this.gps.getСoordinates();
+  async createTextMessage(text, coordinates) {
     const html = `
         <div class="messag">
           <div class="messagCont">
             <p class="messag_text">${text}</p>
-            <div class="messag_geoposition">[51.52658, -0.45263][${coordinates}]</div>
+            <div class="messag_geoposition">${coordinates}</div>
           </div>
           <time class="messag_date">${Message.getData()}</time>
         </div>`;
