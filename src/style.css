@@ -53,6 +53,27 @@ body {
 
 }
 
+.okAudioRecording {
+  background-image: url(../img/m_images_mark.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 15px;
+}
+
+.cansellAudioRecording {
+  background-image: url(../img/m_png-clipclose-button.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 15px;
+}
+
+.timer {
+width: 90px;
+height: 40px;
+border: 1px solid black;
+margin-left: 15px;
+}
+
 .formText {
   flex-grow: 2;
   height: 100%;
@@ -60,3 +81,5 @@ body {
   resize: none;
   border: none;
 }
+
+

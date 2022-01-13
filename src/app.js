@@ -9,6 +9,6 @@ const inputFormEl = document.querySelector('.inputForm');
 
 const popUp = new PopUp();
 const gps = new Gps(popUp);
-const message = new Messages(messagesEl, popUp);
+const message = new Messages(messagesEl, popUp, gps);
 const inputForm = new InputForm(inputFormEl, message, gps, popUp);
 export default inputForm;

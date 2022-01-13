@@ -7,21 +7,25 @@ export default class Gps {
     this.popUp = popUp;
   }
 
-  getСoordinates() {
-    if (navigator.geolocation) {
+  getСoordinates() { // получает координаты
+    if (!navigator.geolocation) {
       this.popUp.renderingPopUp();
       return;
     }
     const promise = new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition((position) => resolve(position),
-        (e) => reject(e), { timeout: 5000 });
+        (e) => reject(e), { timeout: 5000 }); // ожидание координат 5 сек. потом выбросит исключение
     });
     promise.then((position) => this.setCoordinates(position));
     promise.catch(() => this.popUp.renderingPopUp());
   }
 
-  setCoordinates(position) {
+  setCoordinates(position) { // записывает координаты в виде [51.52658, -0.45263] в переменную
     const { latitude, longitude } = position.coords;
     inputForm.coordString = `[${latitude}, ${longitude}]`;
+  }
+
+  showPosition() {
+    alert('логика отображения местоположени человека на карте ещё не написана SORRY');
   }
 }
