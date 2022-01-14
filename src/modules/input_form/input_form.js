@@ -44,7 +44,7 @@ export default class InputForm {
       this.recorder.addEventListener('dataavailable', (e) => {
         chunks.push(e.data);
       });
-      this.recorder.addEventListener('stop', (e) => {
+      this.recorder.addEventListener('stop', () => {
         this.modificationForm('text');
         if (this.recordingResult === 'message') {
           this.stream.getTracks().forEach((track) => track.stop());
