@@ -11,16 +11,18 @@ export default class Message {
   }
 
   createAudioMessage(src, coordinates) {
-    console.log('ссылка на аудио', src);
     const html = `
     <div class="messag">
         <div class="messagCont">
           <audio controls class="messag_audio" src="${src}"></audio>
-          <div class="messag_geoposition">${coordinates}</div>
+          <div class="messag_geoposition">${coordinates}
+          <button class="messag__showPosition"></button>
+          </div>
         </div>
       <time class="messag_date">${Message.getData()}</time>
     </div>`;
     this.messages.innerHTML += html;
+    this.assignHandler();
   }
 
   createTextMessage(text, coordinates) {

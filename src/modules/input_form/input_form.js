@@ -1,10 +1,11 @@
 /* eslint-disable no-alert */
 export default class InputForm {
-  constructor(elem, message, gps, popUp) {
+  constructor(elem, message, gps, popUp, timer) {
     this.form = elem;
     this.message = message;
     this.gps = gps;
     this.popUp = popUp;
+    this.timer = timer;
     this.textarea = document.querySelector('.formText');
     this.soundRecordingButton = document.querySelector('.postAudioRecording');
     this.form.addEventListener('keydown', (e) => this.eventHandler(e));
@@ -39,21 +40,11 @@ export default class InputForm {
       this.recorder = new MediaRecorder(this.stream);
       const chunks = [];
       this.recorder.addEventListener('start', () => {
-        console.log('запись началась', this.stream.id);
       });
       this.recorder.addEventListener('dataavailable', (e) => {
-        console.log('dataavailable', e.data);
         chunks.push(e.data);
       });
-      // this.recorder.addEventListener('pause', () => {
-      //   // возвращем вид форме this.modificationForm('text')
-      //   //chunks.length = 0;
-      //   // this.stream.removeTrack(this.stream.id);
-      //   this.stream.getTracks().forEach((track) => track.removeTrack());
-      //   //this.recorder = null;
-      // });
       this.recorder.addEventListener('stop', (e) => {
-        console.log('stop', e);
         this.modificationForm('text');
         if (this.recordingResult === 'message') {
           this.stream.getTracks().forEach((track) => track.stop());
@@ -87,11 +78,11 @@ export default class InputForm {
       this.soundRecordingButton.remove();
       const htmlAudioRecord = `
       <input class="okAudioRecording buttonForm" type="button" />
-      <div class="timer"></div>
+      <div class="timer">00:00</div>
       <input class="cansellAudioRecording buttonForm" type="button" />
       `;
       this.form.innerHTML += htmlAudioRecord;
-
+      this.timer.startTimer();
       this.buttonOk = this.form.querySelector('.okAudioRecording');
       this.buttonCansell = this.form.querySelector('.cansellAudioRecording');
 
@@ -105,6 +96,8 @@ export default class InputForm {
       });
     }
     if (state === 'text') {
+      this.timer.stopTimer();
+
       this.buttonOk.remove();
       this.buttonCansell.remove();
       this.form.querySelector('.timer').remove();

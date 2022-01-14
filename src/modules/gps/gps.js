@@ -26,6 +26,7 @@ export default class Gps {
   }
 
   showPosition() {
+    // eslint-disable-next-line no-alert
     alert('логика отображения местоположени человека на карте ещё не написана SORRY');
   }
 }

@@ -56,6 +56,7 @@ export default class PopUp {
         inputForm.coordString = inputValue[0].value;
         this.closepopUp();
       } else {
+        // eslint-disable-next-line no-alert
         alert('Координаты введены в неверном формате, введите координаты еще раз');
         inputValue[0].value = '';
       }

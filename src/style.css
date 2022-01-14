@@ -68,9 +68,11 @@ body {
 }
 
 .timer {
+  font-size: 30px;
+  text-align: center;
 width: 90px;
 height: 40px;
-border: 1px solid black;
+/* border: 1px solid black; */
 margin-left: 15px;
 }
 
