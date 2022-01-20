@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-cycle
-import inputForm from '../../app';
+import { inputForm, message } from '../../app';
+
 import validationCoord from '../validation/validationCoord';
 
 export default class PopUp {
@@ -47,14 +48,28 @@ export default class PopUp {
   onClickPopUp(event) {
     const { target } = event;
     if (target.classList.contains('form_cancell')) {
-      inputForm.coordString = 'Координаты скрыты пользователем';
-      this.closepopUp();
+      if (inputForm.stream) { // если стрим есть значит пупап вызван при записи аудио
+        message.createAudioMessage(inputForm.src, 'Координаты скрыты пользователем');
+        document.querySelector('.formText').value = '';
+        this.closepopUp();
+      } else {
+        message.createTextMessage(this.text, 'Координаты скрыты пользователем');
+        document.querySelector('.formText').value = '';
+        this.closepopUp();
+      }
     }
     if (target.classList.contains('form_submitBt')) {
       const inputValue = document.getElementsByName('form_input');
       if (validationCoord(inputValue[0].value) === true) {
-        inputForm.coordString = inputValue[0].value;
-        this.closepopUp();
+        if (inputForm.stream) {
+          message.createAudioMessage(inputForm.src, inputValue[0].value);
+          document.querySelector('.formText').value = '';
+          this.closepopUp();
+        } else {
+          message.createTextMessage(this.text, inputValue[0].value);
+          document.querySelector('.formText').value = '';
+          this.closepopUp();
+        }
       } else {
         // eslint-disable-next-line no-alert
         alert('Координаты введены в неверном формате, введите координаты еще раз');

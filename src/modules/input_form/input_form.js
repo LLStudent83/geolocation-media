@@ -6,14 +6,13 @@ export default class InputForm {
     this.gps = gps;
     this.popUp = popUp;
     this.timer = timer;
-    this.textarea = document.querySelector('.formText');
     this.soundRecordingButton = document.querySelector('.postAudioRecording');
     this.form.addEventListener('keydown', (e) => this.eventHandler(e));
     this.soundRecordingButton.addEventListener('click', (e) => this.eventHandler(e));
-    this.getCoordinates();
   }
 
   eventHandler(e) {
+    this.textarea = document.querySelector('.formText');
     const { target, key } = e;
     if (target === this.textarea && key === 'Enter') {
       e.preventDefault();
@@ -40,17 +39,23 @@ export default class InputForm {
       this.recorder = new MediaRecorder(this.stream);
       const chunks = [];
       this.recorder.addEventListener('start', () => {
+        this.timer.startTimer();
       });
       this.recorder.addEventListener('dataavailable', (e) => {
         chunks.push(e.data);
       });
-      this.recorder.addEventListener('stop', () => {
+      this.recorder.addEventListener('stop', async () => {
         this.modificationForm('text');
         if (this.recordingResult === 'message') {
           this.stream.getTracks().forEach((track) => track.stop());
           const blob = new Blob(chunks);
-          const src = URL.createObjectURL(blob);
-          this.message.createAudioMessage(src, this.coordString);
+          this.src = URL.createObjectURL(blob);
+          this.coordString = await this.gps.getСoordinates();
+          if (this.coordString) {
+            this.message.createAudioMessage(this.src, this.coordString);
+          } else {
+            this.popUp.renderingPopUp();
+          }
         } else {
           chunks.length = 0;
           this.stream.getTracks().forEach((track) => track.stop());
@@ -58,14 +63,20 @@ export default class InputForm {
       });
       this.recorder.start();
     } catch (e) {
-      // eslint-disable-next-line no-console
-      console.log(e);
+      this.modificationForm('text');
+      alert('Вы не дали разрешения для записи аудио. Оставьте текстовое сообщение');
     }
   }
 
-  createTextMessage(text) {
-    this.message.createTextMessage(text, this.coordString);
-    this.textarea.value = '';
+  async createTextMessage(text) {
+    this.popUp.text = text;
+    this.coordString = await this.gps.getСoordinates();
+    if (this.coordString) {
+      this.message.createTextMessage(text, this.coordString);
+      this.textarea.value = '';
+    } else {
+      this.popUp.renderingPopUp();
+    }
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -82,7 +93,7 @@ export default class InputForm {
       <input class="cansellAudioRecording buttonForm" type="button" />
       `;
       this.form.innerHTML += htmlAudioRecord;
-      this.timer.startTimer();
+      // this.timer.startTimer();
       this.buttonOk = this.form.querySelector('.okAudioRecording');
       this.buttonCansell = this.form.querySelector('.cansellAudioRecording');
 

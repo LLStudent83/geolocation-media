@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-cycle
+import { inputForm } from '../../app';
+
 export default class Message {
   constructor(messages, popUp, gps) {
     this.messages = messages;
@@ -23,6 +26,7 @@ export default class Message {
     </div>`;
     this.messages.innerHTML += html;
     this.assignHandler();
+    inputForm.stream = null;
   }
 
   createTextMessage(text, coordinates) {
