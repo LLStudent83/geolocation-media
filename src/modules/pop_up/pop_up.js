@@ -60,13 +60,14 @@ export default class PopUp {
     }
     if (target.classList.contains('form_submitBt')) {
       const inputValue = document.getElementsByName('form_input');
-      if (validationCoord(inputValue[0].value) === true) {
+      const objCoord = validationCoord(inputValue[0].value);
+      if (objCoord) {
         if (inputForm.stream) {
-          message.createAudioMessage(inputForm.src, inputValue[0].value);
+          message.createAudioMessage(inputForm.src, `[${objCoord.latitude}, ${objCoord.longitude}]`);
           document.querySelector('.formText').value = '';
           this.closepopUp();
         } else {
-          message.createTextMessage(this.text, inputValue[0].value);
+          message.createTextMessage(this.text, `[${objCoord.latitude}, ${objCoord.longitude}]`);
           document.querySelector('.formText').value = '';
           this.closepopUp();
         }
