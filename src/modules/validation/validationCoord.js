@@ -3,3 +3,8 @@ export default function validationCoord(data) {
   const corresponds = re.test(data);
   return corresponds;
 }
+
+
+// 51.50851, −0.12572 (есть пробел)
+// 51.50851,−0.12572 (нет пробела)
+// [51.50851, −0.12572] (есть квадратные скобки)
