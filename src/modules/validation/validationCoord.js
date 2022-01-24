@@ -1,6 +1,8 @@
+/* eslint-disable no-console */
 export default function validationCoord(data) {
   const re = /\[?-?\d{1,2}\.\d{5},\s?-?\d{1,2}\.\d{5}\]?/ig;
   const corresponds = re.test(data);
+  console.log('corresponds', corresponds);
   const coordArr = [];
   let result;
   const regexp = /-?\d{1,2}\.\d{5}/ig;
@@ -14,5 +16,6 @@ export default function validationCoord(data) {
     latitude: coordArr[0],
     longitude: coordArr[1],
   };
+  console.log('objCoord', objCoord);
   return objCoord;
 }
