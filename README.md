@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/ywy6r09sfhdt97aq?svg=true)](https://ci.appveyor.com/project/LLStudent83/geolocation-media)
+[![Build status](https://ci.appveyor.com/api/projects/status/vpkyjprq1j6rysd9?svg=true)](https://ci.appveyor.com/project/LLStudent83/geolocation-media)
 
 https://llstudent83.github.io/geolocation-media/
 
